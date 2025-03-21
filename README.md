@@ -41,7 +41,7 @@ Untuk melakukan deploy ke Streamlit Cloud, ikuti langkah berikut:
 3. Buat aplikasi baru:
    - Hubungkan ke repository GitHub.
    - Pilih branch yang berisi kode.
-   - Atur path ke Bike_Sharing_Analysis.py.
+   - Atur path ke main.py.
    - Klik "Deploy" dan tunggu hingga proses selesai.
 
 4. Gunakan Dashboard
