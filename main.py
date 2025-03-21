@@ -1,12 +1,15 @@
 # Proyek Analisis Data: Bike Sharing Dataset dengan Streamlit
 
-import streamlit as st
+import matplotlib.pyplot as plt
+import seaborn as sns
 import pandas as pd
 import numpy as np
+import streamlit as st
 
 # Load Dataset
-df_day = pd.read_csv("day.csv")
-df_hour = pd.read_csv("hour.csv")
+df_day = pd.read_csv("/mnt/data/day.csv")
+df_hour = pd.read_csv("/mnt/data/hour.csv")
+
 
 def main():
     st.title("Bike Sharing Dashboard")
