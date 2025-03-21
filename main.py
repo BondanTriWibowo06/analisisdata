@@ -1,19 +1,25 @@
 # Proyek Analisis Data: Bike Sharing Dataset dengan Streamlit
 
-import matplotlib.pyplot as plt
-import seaborn as sns
+import streamlit as st
 import pandas as pd
 import numpy as np
-import streamlit as st
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-# Load Dataset
-df_day = pd.read_csv("/mnt/data/day.csv")
-df_hour = pd.read_csv("/mnt/data/hour.csv")
+# Sidebar untuk upload dataset
+st.sidebar.subheader("Upload Dataset")
+uploaded_day = st.sidebar.file_uploader("Upload day.csv", type=["csv"])
+uploaded_hour = st.sidebar.file_uploader("Upload hour.csv", type=["csv"])
 
+if uploaded_day is not None and uploaded_hour is not None:
+    df_day = pd.read_csv(uploaded_day)
+    df_hour = pd.read_csv(uploaded_hour)
+else:
+    st.warning("Harap unggah kedua file dataset untuk melanjutkan.")
+    st.stop()
 
 def main():
     st.title("Bike Sharing Dashboard")
-    st.sidebar.title("Bondan Tri Wibowo bondan.tri@lintasarta.co.id L000YWL027")
     st.sidebar.title("Navigasi")
     menu = st.sidebar.selectbox("Pilih Analisis", [
         "Overview Data",
@@ -29,7 +35,8 @@ def main():
         st.dataframe(df_day.head())
         st.write("### Data Jam")
         st.dataframe(df_hour.head())
-
+        st.write("### Info Dataset")
+        st.text(df_day.info())
 
     elif menu == "Analisis Peminjaman Sepeda":
         st.subheader("Distribusi Peminjaman Sepeda")
@@ -42,10 +49,7 @@ def main():
 
     elif menu == "Faktor yang Mempengaruhi":
         st.subheader("Korelasi Variabel")
-        
-        # Hanya pilih kolom numerik untuk menghindari error
         df_corr = df_day.select_dtypes(include=[np.number])
-
         fig, ax = plt.subplots(figsize=(10,6))
         sns.heatmap(df_corr.corr(), annot=True, cmap='coolwarm', fmt='.2f', ax=ax)
         ax.set_title("Matriks Korelasi Antar Variabel")
@@ -56,7 +60,6 @@ def main():
         bins = [0, 2000, 4000, 6000, 10000]
         labels = ['Rendah', 'Sedang', 'Tinggi', 'Sangat Tinggi']
         df_day['kategori_peminjaman'] = pd.cut(df_day['cnt'], bins=bins, labels=labels)
-
         fig, ax = plt.subplots(figsize=(8,5))
         sns.countplot(x='kategori_peminjaman', data=df_day, palette='pastel', ax=ax)
         ax.set_xlabel("Kategori Peminjaman")
