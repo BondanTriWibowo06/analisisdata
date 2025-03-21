@@ -36,7 +36,6 @@ def main():
         st.dataframe(df_day.head())
         st.write("### Data Jam")
         st.dataframe(df_hour.head())
-        st.text(df_day.info())
 
     elif menu == "Analisis Peminjaman Sepeda":
         st.subheader("Distribusi Peminjaman Sepeda")
