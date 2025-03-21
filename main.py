@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Sidebar untuk upload dataset
+st.sidebar.subheader("Bondan Tri Wibowo bondan.tri@lintasarta.co.id L000YWL027")
 st.sidebar.subheader("Upload Dataset")
 uploaded_day = st.sidebar.file_uploader("Upload day.csv", type=["csv"])
 uploaded_hour = st.sidebar.file_uploader("Upload hour.csv", type=["csv"])
