@@ -19,7 +19,7 @@ pip install streamlit pandas numpy matplotlib seaborn
 
 Cara Menjalankan Dashboard
 1. Kloning atau Unduh Repositori
-   git clone [https://github.com/username/repo-name.git]
+   git clone (https://github.com/BondanTriWibowo06/analisisdata/edit/main/)
    cd repo-name
 2. Jalankan Dashboard
    streamlit run main.py
