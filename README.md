@@ -19,10 +19,10 @@ pip install streamlit pandas numpy matplotlib seaborn
 
 Cara Menjalankan Dashboard
 1. Kloning atau Unduh Repositori
-   git clone https://github.com/username/repo-name.git
+   git clone [https://github.com/username/repo-name.git]
    cd repo-name
 2. Jalankan Dashboard
-   streamlit run Bike_Sharing_Analysis.py
+   streamlit run main.py
 3. Unggah Dataset
    - Setelah dashboard terbuka di browser, unggah file day.csv dan hour.csv pada sidebar.
    - Setelah file diunggah, Anda bisa mulai melakukan eksplorasi data melalui navigasi sidebar.
